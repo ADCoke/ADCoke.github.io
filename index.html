@@ -1,376 +1,53 @@
 <!DOCTYPE html>
-<html lang ="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <title>It aint notin rly</title>
-    <meta name="description" content="">
-</head>
-<body class="bg-dark">
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-<div class="container-fluid">
-  <div class="row">
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie ein File vom Dateisystem entfernen?
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Hausübung 1 - Taschenrechner</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Task #1 - Calculator</h1>
+            <hr>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">rm filename</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl geben Sie einem File in Linux executable Rechte
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl">
+                    <div class="inputFields">
+                        <form name="calculator">
+                            <input type="number" name="firstNumber" id="firstNumber" placeholder="Enter first number..." pattern="[0-9]+"/>
+                            <input type="number" name="secondNumber" id="secondNumber" placeholder="Enter second number..." />
+                        </form>
+                        <div id="lastCalculation">
+                            <span id="operation"></span>
+                            <span id="result"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-1">
+                    <div class="operationButtons">
+                        <button class="operation" value="+" onclick="calculate(this.value)" />+</button>
+                        <button class="operation" value="-" onclick="calculate(this.value)" />-</button>
+                        <button class="operation" value="*" onclick="calculate(this.value)" />*</button>
+                        <button class="operation" value="/" onclick="calculate(this.value)" />/</button>
+                    </div>
+                </div>
+                <div class="col-xl">
+                    <h2>History:</h2>
+                    <div class="history">
+                        <ul id="history"></ul>
+                        <button class="clearHistory" id="clearHistory" onclick="clearHistory()" />Clear History</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">chmod 755 file.sh</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-        Mit welchem Befehl können Sie ein Verzeichnis in der Shell erstellen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">mkdir verzeichnis</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welcher Instruktion beginnt ein Shellscript
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">#!/bin/bash</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie ein Text-File rekursiv sortieren
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">sort -r filename</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie in der Shell den aktuellen User ermitteln
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">whoami</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie ein default gateway setzen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">route add default gw 192.168.1.1</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie dem Netzwerkinterface eth0 eine Subnetmaske zuweisen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">ifconfig eth0 netmask 255.255.255.224</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie einen Eintrag in die ARP-Table vornehmen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">arp -s 192.168.1.7 22:b4:23:ba:fa:2f</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie dem Interface eth1 eine Netzwerkadresse zuweisen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">ip addr add 10.0.0.7/24 dev eth1</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Wie lautet der Pfad zur hosts-Datei unter Linux
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">/etc/hosts</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie das Interface eth0 aktivieren
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">ip link set eth0 up</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie die MAC-Adresse des NW-Interfaces eth1 ändern
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">ip link set eth1 address 23:50:53:ab:4c:44</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie die Netzwerkinterfaces unter Linux anzeigen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">ifconfig</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchen Befehl können Sie sich die aktuelle Routing-Table ausgeben lassen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">ip route show</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie die aktuell ausgeführten Prozesse anzeigen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">ps -ax</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie die Anzahl der Wörter in einem Textfile zählen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">wc -w filename</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie einen Text auf die Konsole ausgeben
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">echo "hello world"</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie eine Liste der zuletzt angemeldeten Benutzer ausgeben
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">last</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie eine ICMP-Request an orf.at absetzen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">ping orf.at</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchen Befehl können Sie die Zeilen in vi numeriert darstellen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">:set nu oder :set number (:set no = falsch)</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie sich die aktuelle Uhrzeit ausgeben lassen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">date (time = falsch)</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie in der Shell den aktuellen User ermitteln
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">whoami</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg">
-      <div class="card text-white bg-dark border-secondary" style="width: 18rem;">
-        <div class="card-header bg-secondary">
-          Mit welchem Befehl können Sie sich aus der Shell ausloggen
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-white correctAnswer"><span class="correctAnswer">exit</span></li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-test change
-
-<a href="https://towardsdatascience.com/how-to-integrate-python-and-r-in-visual-studio-code-496a47c90422">Click</a>
-
-<hr><hr>
-
-Frage 1:
-Welche Zugriffsrechte werden mit folgendem Befehl gesetzt: chmod ugo-rw secret.file - 
-
-	Der Gruppe, dem Besitzer und den Others werden Schreibrechte und Leserechte auf die Datei secret.file entzogen
-<br>
-Frage 3:
-Womit beginnen Shell-Scripts? - 
-
-	#!/bin/bash
-	In der erstzen ZHeile wird die zu verwendete Shell angegeben
-<br>
-Frage 4: Bild von Wireshark  - 
-
-	Der Service Set Identifier des AP lautet eduroam
-	Der von AP verwendete Kanal lautet: 1
-	Die MAC-Adresse des AP lautet 00:a2:ee:ee:0b:13
-  <br>
-Frage 5:
-Kreuzen Sie die zutreffenden Aussagen zu SNMP an.  - 
-
-	Das SNMP Protokoll wird zur Überwachung und Steuerung von Netzwerkgeräten verwendet.
-	SMNP arbeitet auf der Anwendungsschicht des OSI Modells
-	Simple Network Management protocol
-  <br>
-Frage 7: 
-Kreuzen Sie zutreffende Aussagen zu /dev/null an  - 
-
-	Der Pfad /dev/null wird verwendet um Datenströme (z.b von programmen oder Downloads nicht zu speichern)
-	Der Paf /dev/null führt ins Nichts. Wird eine Datei dorthin kopiert, so wird sie verworfen.
-  <br>
-Frage 9:
-Zu welchem Ergebnis führt der Basbefehl sudo mv myFile /dev/null - 
-
-	Die Datei myFile wird gelöscht
-  <br>
-Frage 10:
-Mit welchem Befehl können Sie ein File in der Shell erstellen - 
-
-	touch filename
-  <br>
-Frage 11:
-Zu welchem Ergebnis führt folgender Befehl: ping 8.8.4.4 1>pings 2>pongs - 
-
-	Die Ausgabe von Stderr wird in die Datei pongs gespeichert
-  <br>
-Frage 12:
-Kreuzen Sie zutreffende Aussagen an: - 
-
-	Unter Rauschen versteht man unvorhersehbare, nicht korrigierbare Störsignale beim empfangenen Signal.
-	Das Signal zo Noise Ratio beschreibt das Verhältnis zwischen Signal und Rauschen
-  <br>
-Frage 15:
-Mit welchem Befehl können sie eine File vom Dateisystem entfernen - 
-
-	rm filename
-  <br>
-Frage 16:
-Mit welchem Befehl können Sie die Netzwerkinferfaces unter Linux anzeigen  - 
-
-	ifconfig
-  <br>
-Frage 17:
-Mit welchem Vefehl können Sie ein File nach einer Zeichenkette durchsuchen  - 
-
-	grep -i Zeichenkette filename.log
-  <br>
-Frage 18:
-Ordnen Sie die Reigenfolge des Troubleshooting Prozesses.  - 
-
-	https://cdn.discordapp.com/attachments/889998358415048736/935097210075492372/unknown.png
-  <br>
-Frage 19: 
-Mit welchem Befehl können Sie die Zugriffsrechte auf ein File ändern - 
-
-	chmod
-<br>
-Frage 20: 
-Was versteht man unter Log rotation? Kreuzen Sie zutreffende Aussagen an: - 
-
-?	Unter Log Rotation versteht man das verteilte schreiben von logfiles auf mehrere Systeme. Dabei wird die Last auf n-1 Systeme aufgeteilt
-	Mit Log rotation ist das automatisierte löschen, komprimieren und verschieben von Logfiles gemeint
-
-
-</body>
+        <script type="text/javascript" src="calculator.js"></script>
+    </body>
 </html>
