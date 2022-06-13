@@ -1,72 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>c++ reference</title>
 </head>
+
 <body>
     #include <iostream>
         #include <sstream>
-        #include <string>
-        using namespace std;
-        class Complex {
-           private:
-            int real;
-            int imag;
-           public:
-            Complex() {}
-            Complex(int r, int i) {
+            #include <string>
+                using namespace std;
+                class Complex {
+                private:
+                int real;
+                int imag;
+                public:
+                Complex() {}
+                Complex(int r, int i) {
                 real = r;
                 imag = i;
-            }
-            Complex operator+(Complex const &other) {
+                }
+                Complex operator+(Complex const &other) {
                 Complex result = Complex();
                 result.real = real + other.real;
                 result.imag = imag + other.imag;
                 return result;
-            }
-            Complex operator++() {
+                }
+                Complex operator++() {
                 Complex result = Complex();
                 real++;
                 imag++;
                 return result;
-            }
-            istream &operator>>(istream &in, Complex &c) {
+                }
+                istream &operator>>(istream &in, Complex &c) {
                 int real;
                 int imag;
-                cout << "Choose real number " << std::endl;
-                in >> real;
-                c.SetReal(real);
-                cout << "Choose imag number" << endl;
-                in >> imag;
-                c.SetImag(imag);
-                return in;
-            }
-            ostream &operator<<(ostream &out, Complex &c) {
-                out << c.GetReal();
-                out << " + i" << c.GetImag() << endl;
-                return out;
-            }
-            std::string toString() {
-                std::stringstream ss;
-                ss << real << " + i" << imag;
-                return ss.str();
-            }
-            int main(int argc, const char *argv[]) {
-                Complex num1 = Complex();
-                // Operator overloaded
-                cin >> num1;
-                // Operator overloading statt toString
-                cout << "First number " << num1 << endl;
-                Complex num2 = Complex(2, 4);
-                Complex result = num1 + num2;
-                std::cout << result << std::endl;
-                ++result;
-                std::cout << result.toString() << std::endl;
-                return 0;
-            }
-        
-        
-        -------------------------------------B-------------------------------------------
-</body>
+                cout << "Choose real number " << std::endl; in>> real;
+                    c.SetReal(real);
+                    cout << "Choose imag number" << endl; in>> imag;
+                        c.SetImag(imag);
+                        return in;
+                        }
+                        ostream &operator<<(ostream &out, Complex &c) { out << c.GetReal(); out << " + i" << c.GetImag()
+                            << endl; return out; } std::string toString() { std::stringstream ss; ss << real << " + i"
+                            << imag; return ss.str(); } int main(int argc, const char *argv[]) { Complex num1=Complex();
+                            // Operator overloaded cin>> num1;
+                            // Operator overloading statt toString
+                            cout << "First number " << num1 << endl; Complex num2=Complex(2, 4); Complex result=num1 +
+                                num2; std::cout << result << std::endl; ++result; std::cout << result.toString() <<
+                                std::endl; return 0; }
+                                -------------------------------------B-------------------------------------------
+                                </body>
+
 </html>
