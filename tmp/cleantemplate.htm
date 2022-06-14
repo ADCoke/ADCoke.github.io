@@ -1,0 +1,156 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Malgun Gothic";
+	panose-1:2 11 5 3 2 0 0 2 0 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@Malgun Gothic";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=DE-AT style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0cm'><a name="_Hlk106067544"><span
+lang=EN-US style='font-size:8.0pt;line-height:107%;font-family:Consolas'>#include
+&lt;iostream&gt;<br>
+#include &lt;random&gt;<br>
+#include &quot;./src/Human.h&quot;<br>
+std::random_device randomDeviceAttack;<br>
+std::mt19937 generatorPlayer(randomDeviceAttack());<br>
+std::uniform_int_distribution&lt;int&gt; attackAccuracy(1, 10);<br>
+int accuracy = attackAccuracy(randomDeviceAttack);  // (1 - 10)<br>
+int main() {return 0;}</span></a></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span lang=EN-US style='font-size:
+8.0pt;line-height:107%;font-family:Consolas'>#ifndef IHUMAN_H<br>
+#define IHUMAN_H<br>
+#include &quot;Basket.h&quot;<br>
+class IHuman{<br>
+public:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span lang=EN-US style='font-size:
+8.0pt;line-height:107%;font-family:Consolas'>virtual void AddBasket(Basket*
+basket) = 0;<br>
+virtual void Move(int from, int to) = 0;};<br>
+#endif // IHUMAN_H</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span lang=EN-US style='font-size:
+8.0pt;line-height:107%;font-family:Consolas'>#ifndef HUMAN_H<br>
+#define HUMAN_H<br>
+#include &quot;Basket.h&quot;<br>
+#include &quot;IHuman.h&quot;<br>
+#include &lt;vector&gt;<br>
+class Human : public IHuman {<br>
+public:<br>
+Human();<br>
+~Human();<br>
+static void addBasket(Basket *basket);<br>
+static void move(int origin, int target);<br>
+private:<br>
+std::vector&lt;Basket *&gt; baskets;};<br>
+#endif //HUMAN_H</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span lang=EN-US style='font-size:
+8.0pt;line-height:107%;font-family:Consolas'>#ifndef BASKET_H<br>
+#define BASKET_H<br>
+#include &quot;Cherry.h&quot;<br>
+#include &lt;vector&gt;<br>
+class Basket {<br>
+public:<br>
+Basket();<br>
+~Basket();<br>
+void addCherry();<br>
+Cherry *removeCherry();<br>
+int getAmount() const;<br>
+void setAmount(int amount);<br>
+private:<br>
+std::vector&lt;Cherry *&gt; fruits;<br>
+int amount;};<br>
+#endif BASKET_H</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span lang=EN-US style='font-size:
+8.0pt;line-height:107%;font-family:Consolas'>#ifndef CHERRY_H<br>
+#define CHERRY_H<br>
+class Cherry {<br>
+public:<br>
+Cherry();<br>
+~Cherry();<br>
+int getFruitAmount() const;<br>
+void setFruitAmount(int fruitAmount);<br>
+protected:<br>
+private:<br>
+int fruitAmount;};<br>
+#endif //CHERRY_H</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span lang=EN-US style='font-size:
+8.0pt;line-height:107%;font-family:Consolas'>#include &quot;Human.h&quot;<br>
+#include &lt;iostream&gt;<br>
+Human::Human() = default;<br>
+Human::~Human() = default;<br>
+void Human::move(int origin, int target) {<br>
+std::cout &lt;&lt; &quot;move&quot;;}<br>
+void Human::addBasket(Basket *basket) {<br>
+std::cout &lt;&lt; &quot;add basket&quot;;}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span lang=EN-US style='font-size:
+8.0pt;line-height:107%;font-family:Consolas'>#include &quot;Basket.h&quot;<br>
+Basket::Basket() : amount(0), fruits(0){ }<br>
+Basket::~Basket() = default;<br>
+void Basket::addCherry() {}<br>
+Cherry *Basket::removeCherry() {}<br>
+int Basket::getAmount() const {return this-&gt;amount;}<br>
+void Basket::setAmount(int amount) {this-&gt;amount = amount;}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span lang=EN-US style='font-size:
+8.0pt;line-height:107%;font-family:Consolas'>#include &quot;Cherry.h&quot;<br>
+Cherry::Cherry() : fruitAmount(0) {}<br>
+Cherry::~Cherry() = default;<br>
+int Cherry::getFruitAmount() const {return this-&gt;fruitAmount;}<br>
+void Cherry::setFruitAmount(int fruitAmount) {this-&gt;fruitAmount =
+fruitAmount;}</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
