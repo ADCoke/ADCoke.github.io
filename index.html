@@ -4,19 +4,89 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="styles.css">
 
-	<title>TITLE HERE</title>
-	<meta name="description" content="">
+	<title>.</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&family=Ubuntu+Mono&display=swap"
+		rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
 </head>
 
 <body>
-
-	(worst / avg / best)
-	- Bubblesort: O(n²), O(n²), O(n) - stable
-	- Insertionsort: O(n²), O(n²), O(n) - stable
-	- Mergesort: O(n*logn), O(n*logn), O(n*logn) - stable
-	- Quicksort: O(n²), O(n*logn), O(n*logn) - unstable
+	<div class="container-fluid">
+		<div class="myContainer">
+			<div class="item">
+				Sorting / Laufzweiten (worst => best):<br>
+				- Bubblesort: O(n²), O(n²), O(n) - stable - slow<br>
+				- Insertionsort: O(n²), O(n²), O(n) - stable - slow<br>
+				- Mergesort: O(n*logn), O(n*logn), O(n*logn) - stable - fast<br>
+				- Quicksort: O(n²), O(n*logn), O(n*logn) - unstable - medium<br>
+			</div>
+			<div class="item">
+				Laufzeiten bestimmen:<br>
+				O(10n) = O(n)<br>
+				O(2n + 3) = O(n)<br>
+				O(14n³−3n²+ 10) = O(n³)<br>
+				O(3 + 2 ∙ sin(n)) = O(1)<br>
+				O(2n² + 3n+ 3) = O(n²)<br>
+				O(4 · 2^n + 3n²) = O(2^n)<br>
+				O(4n² · log(n) + 2n · (log(n))³ = O(n² * log(n))<br>
+				O(17n² + 3n + 100) = O(n²)<br>
+				O(4n · (-2 + 3n) · (n - log(n)) / n) = O(n²)<br>
+			</div>
+			<div class="item">
+				Binary Search:<br>
+				-worst + average: log(n), best: o(1)
+			</div>
+			<div class="item">
+				Hash Table:<br>
+				- Arraygröße = Primzahl<br>
+				- möglichst geringe Kollisionswahrscheinlichkeit<br>
+				- möglichst gleichmäßige Verteilung<br>
+				- benachbarte schlüsselwerte möglichst weit auseinander<br>
+				- schnelle berechnung<br>
+				- externe verkettung vs sondierung (quadratisch)<br>
+			</div>
+			<div class="item">
+				Quicksort immer schnell?:<br>
+				- Nur im average case gute ergebnisse (ausgeglichen sortiert)<br>
+				- selbst wenn vorsortiert: umdständlich divide & conquer<br>
+				- worst case: O(n²)
+			</div>
+			<div class="item">
+				Probleme Rekursion:<br>
+				- Jeder Aufruf belegt Speicher am Stack (begrenzt / overflow)<br>
+				- in der Regel schlechtere Performance<br>
+				- needs more space 7 more memory<br>
+				- Vorteile: Readability / "Eleganz"<br>
+			</div>
+			<div class="item">
+				Array vs. Liste:<br>
+				- Array = geordnete Menge gleicher Datentypen<br>
+				- Liste möglicherweise ungleiche Datentypen<br>
+				- Größe: fix vs. dynamisch<br>
+				- Listen: mehr Speicherbedarf, Zugriff dauert länger<br>
+			</div>
+			<div class="item">
+				Baum Bestandteile:<br>
+				Node, Edge, Root, Leaf, Inner Node, Path,<br>
+				Parent, Child, Vorfahren, Nachfahren, Höhe, Niveau, Ordnung
+			</div>
+			<div class="item">
+				Binary Tree:<br>
+				- höchstens (n+1)/2 leafs<br>
+				- mindestens (n-1)/2 inner nodes<br>
+				- mindestens log(n) tiefe
+			</div>
+			<div class="item">
+			</div>
+		</div>
 
 </body>
 
